@@ -1,17 +1,12 @@
 'use strict';
 
 function daysInYear(year) {
-  try {
-    if(year % 1 > 0 || typeof year !== 'number') {
-      throw 'exception';
-    } else {
-      const getLastDayOfFeb = new Date(`${year}`, `2`, `-1`).getDate();
-      return getLastDayOfFeb > 27 ? 366 : 365;
-    }
+  if(year % 1 > 0 || typeof year !== 'number') {
+    throw 'exception';
   }
-  catch(error) {
-    console.log(error);
-  }
+    const getLastDayOfFeb = new Date(`${year}`, `2`, `0`).getDate();
+    console.log(getLastDayOfFeb > 28 ? 366 : 365);
+    return getLastDayOfFeb > 28 ? 366 : 365;
 }
 
 daysInYear(2019); // 365
